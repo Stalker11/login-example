@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SignIn</string>
+    <string name="sign_in">Sign in</string>
+    <string name="wrong_email">Wrong email</string>
+    <string name="wrong_password">Wrong password</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+</resources>

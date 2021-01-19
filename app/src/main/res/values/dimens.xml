@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Back btn margins -->
+    <dimen name="btn_back_margin_top">62dp</dimen>
+    <dimen name="btn_back_margin_start">40dp</dimen>
+
+    <!-- Social icons sizes -->
+    <dimen name="social_icons_size">30dp</dimen>
+    <dimen name="social_icons_size_margin_top">28dp</dimen>
+
+    <!-- Text sizes -->
+    <dimen name="sign_in_text_size">30sp</dimen>
+
+    <!-- Input fields paddings-->
+    <dimen name="input_filed_padding">36dp</dimen>
+
+    <dimen name="edit_text_margins_top">10dp</dimen>
+    <dimen name="edit_text_margins_start">10dp</dimen>
+</resources>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue_background"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/sign_in_back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/btn_back_margin_start"
+        android:layout_marginTop="@dimen/btn_back_margin_top"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_btn_back" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="90dp"
+        android:src="@drawable/ic_user_icon_big" />
+
+    <TextView
+        style="@style/SignInStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="106dp"
+        android:text="@string/sign_in" />
+
+    <include
+        android:id="@+id/sign_in_social_btn"
+        layout="@layout/social_icons_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/social_icons_size_margin_top" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/input_filed_padding"
+        android:layout_marginTop="62dp"
+        android:layout_marginEnd="@dimen/input_filed_padding"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/sign_in_email_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_text_border"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/SignInTextError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/edit_text_margins_start"
+                android:fontFamily="@font/work_sans"
+                tools:text="DFDFDGDGDGDGDFGDFGFDG" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/sign_in_email_edit_text"
+                style="@style/SignInTextEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/edit_text_margins_start"
+                android:layout_marginEnd="@dimen/edit_text_margins_start"
+                android:background="@android:color/transparent"
+                android:hint="@string/email"
+                android:inputType="textEmailAddress"
+                android:maxLength="120"
+                android:maxLines="1" />
+
+            <TextView
+                android:id="@+id/sign_in_email_error_message"
+                style="@style/SignInTextError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/edit_text_margins_start"
+                android:fontFamily="@font/work_sans"
+                tools:text="DFDFDGDGDGDGDFGDFGFDG" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/sign_in_pas_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/input_text_border"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                style="@style/SignInTextError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/edit_text_margins_start"
+                android:fontFamily="@font/work_sans"
+                tools:text="DFDFDGDGDGDGDFGDFGFDG" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/sign_in_password_edit_text"
+                style="@style/SignInTextEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/edit_text_margins_start"
+                android:layout_marginEnd="@dimen/edit_text_margins_start"
+                android:background="@android:color/transparent"
+                android:hint="@string/password"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:maxLength="10" />
+
+            <TextView
+                android:id="@+id/sign_in_password_error_message"
+                style="@style/SignInTextError"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="@dimen/edit_text_margins_start"
+                android:fontFamily="@font/work_sans"
+                tools:text="DFDFDGDGDGDGDFGDFGFDG" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/sign_in_btn"
+            style="@style/SignInTextBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <TextView
+        android:id="@+id/sign_in_link_sign_up"
+        style="@style/SignInTextLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="32dp"
+        android:text="@string/sign_in" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+
