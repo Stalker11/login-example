@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Back btn margins -->
-    <dimen name="btn_back_margin_top">62dp</dimen>
+    <dimen name="btn_back_margin_top">52dp</dimen>
     <dimen name="btn_back_margin_start">40dp</dimen>
 
     <!-- Social icons sizes -->
