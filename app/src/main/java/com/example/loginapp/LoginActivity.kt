@@ -1,29 +1,28 @@
 package com.example.loginapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import com.example.loginapp.databinding.ActivityMainBinding
+import com.example.loginapp.di.ServiceLocatorImpl
+import com.example.loginapp.net.models.LoginUserNWModel
+import com.example.loginapp.utils.Constants
 import com.example.loginapp.utils.Validators
 import com.example.loginapp.viewmodels.LoginViewModel
 import com.example.loginapp.viewmodels.ViewModelFactory
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity() {
 
-    private val loginViewModel by lazy { ViewModelFactory().create(LoginViewModel::class.java) }
+    private val loginViewModel by lazy {
+        ViewModelFactory(ServiceLocatorImpl()).create(
+            LoginViewModel::class.java
+        )
+    }
     private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         initViews()
-        binding.signInSocialBtn.icAppleIcon.setOnClickListener {
-
-        }
-        loginViewModel.login()
     }
 
     private fun initViews() {
@@ -59,8 +58,22 @@ class LoginActivity : AppCompatActivity() {
             }
         }
         binding.signInBtn.setOnClickListener {
-            isFieldsValid()
+            if (isFieldsValid()) {
+                loginViewModel.login(
+                    LoginUserNWModel(
+                        email = binding.signInEmailEditText.text.toString().trim(),
+                        password = binding.signInPasswordEditText.text.toString().trim()
+                    )
+                )
+                binding.signInBtn.isEnabled = false
+            }
         }
+        loginViewModel.loginLiveData.observe(this, {
+            getSharedPreferences(Constants.SH_NAME, MODE_PRIVATE).edit()
+                .putString(Constants.SAVE_TOKEN, it.token).apply()
+            startActivity(UsersActivity.newInstance(this))
+            finish()
+        })
     }
 
     private fun isFieldsValid(): Boolean {

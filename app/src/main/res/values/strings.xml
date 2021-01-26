@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SignIn</string>
+    <string name="app_name">Log in app</string>
     <string name="sign_in">Sign in</string>
     <string name="wrong_email">Wrong email</string>
     <string name="wrong_password">Wrong password</string>

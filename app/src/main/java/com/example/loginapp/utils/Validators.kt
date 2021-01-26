@@ -9,8 +9,8 @@ object Validators {
     fun isEmailValid(email: String): Boolean {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches()
     }
-
+    //TODO API required
     fun isPasswordValid(password: String): Boolean {
-        return Pattern.compile(PASSWORD_REGEX).matcher(password).matches()
+        return true//Pattern.compile(PASSWORD_REGEX).matcher(password).matches()
     }
 }
