@@ -45,4 +45,12 @@
         <item name="android:fontFamily">@font/work_sans</item>
         <item name="android:textSize">14sp</item>
     </style>
+
+    <style name="CustomAlertDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:width">300dip</item>
+        <item name="android:textColor">@color/color_red</item>
+    </style>
 </resources>

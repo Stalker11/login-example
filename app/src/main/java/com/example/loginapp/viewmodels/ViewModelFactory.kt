@@ -9,6 +9,9 @@ class ViewModelFactory(val serviceLocator : ServiceLocator) : ViewModelProvider.
         if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
             return LoginViewModel(serviceLocator) as T
         }
+        if (modelClass.isAssignableFrom(UsersViewModel::class.java)) {
+            return UsersViewModel(serviceLocator) as T
+        }
         throw IllegalArgumentException("Unknown class name")
     }
 }

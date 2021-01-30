@@ -65,14 +65,20 @@ class LoginActivity : BaseActivity() {
                         password = binding.signInPasswordEditText.text.toString().trim()
                     )
                 )
+                showProgressDialog()
                 binding.signInBtn.isEnabled = false
             }
         }
         loginViewModel.loginLiveData.observe(this, {
             getSharedPreferences(Constants.SH_NAME, MODE_PRIVATE).edit()
                 .putString(Constants.SAVE_TOKEN, it.token).apply()
+            hideProgressDialog()
             startActivity(UsersActivity.newInstance(this))
             finish()
+        })
+        loginViewModel.errorLiveData.observe(this, {
+            hideProgressDialog()
+            showErrorDialog(it.errorMessage)
         })
     }
 
