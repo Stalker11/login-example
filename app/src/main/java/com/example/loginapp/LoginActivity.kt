@@ -26,47 +26,47 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun initViews() {
-        binding.signInBackBtn.setOnClickListener {
+        binding.signInBackBtn?.setOnClickListener {
             onBackPressed()
         }
-        binding.signInSocialBtn.icAppleIcon.setOnClickListener {
+        binding.signInSocialBtn?.icAppleIcon?.setOnClickListener {
             //TODO Add SN login
         }
-        binding.signInEmailEditText.setOnFocusChangeListener { v, hasFocus ->
+        binding.signInEmailEditText?.setOnFocusChangeListener { v, hasFocus ->
             when (hasFocus) {
                 true -> {
-                    binding.signInEmailContainer.background = ContextCompat.getDrawable(
+                    binding.signInEmailContainer?.background = ContextCompat.getDrawable(
                         this,
                         R.drawable.input_text_border
                     )
-                    binding.signInEmailErrorMessage.text = null
+                    binding.signInEmailErrorMessage?.text = null
                 }
 
                 false -> isFieldsValid()
             }
         }
-        binding.signInPasswordEditText.setOnFocusChangeListener { v, hasFocus ->
+        binding.signInPasswordEditText?.setOnFocusChangeListener { v, hasFocus ->
             when (hasFocus) {
                 true -> {
-                    binding.signInPasContainer.background = ContextCompat.getDrawable(
+                    binding.signInPasContainer?.background = ContextCompat.getDrawable(
                         this,
                         R.drawable.input_text_border
                     )
-                    binding.signInPasswordErrorMessage.text = null
+                    binding.signInPasswordErrorMessage?.text = null
                 }
                 false -> isFieldsValid()
             }
         }
-        binding.signInBtn.setOnClickListener {
+        binding.signInBtn?.setOnClickListener {
             if (isFieldsValid()) {
                 loginViewModel.login(
                     LoginUserNWModel(
-                        email = binding.signInEmailEditText.text.toString().trim(),
-                        password = binding.signInPasswordEditText.text.toString().trim()
+                        email = binding.signInEmailEditText?.text.toString().trim(),
+                        password = binding.signInPasswordEditText?.text.toString().trim()
                     )
                 )
                 showProgressDialog()
-                binding.signInBtn.isEnabled = false
+                binding.signInBtn?.isEnabled = false
             }
         }
         loginViewModel.loginLiveData.observe(this, {
@@ -85,23 +85,23 @@ class LoginActivity : BaseActivity() {
     private fun isFieldsValid(): Boolean {
 
         val isEmailValid =
-            Validators.isEmailValid(binding.signInEmailEditText.text.toString().trim())
+            Validators.isEmailValid(binding.signInEmailEditText?.text.toString().trim())
         val isPasswordValid =
-            Validators.isPasswordValid(binding.signInPasswordEditText.text.toString().trim())
+            Validators.isPasswordValid(binding.signInPasswordEditText?.text.toString().trim())
 
         if (!isEmailValid) {
-            binding.signInEmailContainer.background = ContextCompat.getDrawable(
+            binding.signInEmailContainer?.background = ContextCompat.getDrawable(
                 this,
                 R.drawable.input_text_error_border
             )
-            binding.signInEmailErrorMessage.text = getString(R.string.wrong_email)
+            binding.signInEmailErrorMessage?.text = getString(R.string.wrong_email)
         }
         if (!isPasswordValid) {
-            binding.signInPasContainer.background = ContextCompat.getDrawable(
+            binding.signInPasContainer?.background = ContextCompat.getDrawable(
                 this,
                 R.drawable.input_text_error_border
             )
-            binding.signInPasswordErrorMessage.text = getString(R.string.wrong_password)
+            binding.signInPasswordErrorMessage?.text = getString(R.string.wrong_password)
         }
         return isEmailValid && isPasswordValid
     }

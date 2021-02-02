@@ -16,4 +16,9 @@
 
     <dimen name="edit_text_margins_top">10dp</dimen>
     <dimen name="edit_text_margins_start">10dp</dimen>
+
+    <!-- User avatar min sizes -->
+    <dimen name="user_avatar_min_size">105dp</dimen>
+    <dimen name="user_avatar_top_margin">40dp</dimen>
+    <dimen name="user_avatar_start_margin">30dp</dimen>
 </resources>

@@ -54,6 +54,8 @@ dependencies {
     //MVVM
     implementation "android.arch.lifecycle:extensions:$rootProject.versionViewModel"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.versionViewModel"
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.8'
     //Tests
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
