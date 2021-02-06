@@ -78,6 +78,7 @@ class LoginActivity : BaseActivity() {
         })
         loginViewModel.errorLiveData.observe(this, {
             hideProgressDialog()
+            binding.signInBtn?.isEnabled = true
             showErrorDialog(it.errorMessage)
         })
     }
