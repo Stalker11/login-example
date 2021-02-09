@@ -74,6 +74,7 @@ class LoginActivity : BaseActivity() {
                 .putString(Constants.SAVE_TOKEN, it.token).apply()
             hideProgressDialog()
             startActivity(UsersActivity.newInstance(this))
+           //TODO Delete this activity from stack
             finish()
         })
         loginViewModel.errorLiveData.observe(this, {

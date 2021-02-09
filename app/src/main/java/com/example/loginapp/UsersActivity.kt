@@ -6,11 +6,15 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.loginapp.databinding.ActivityUsersBinding
 import com.example.loginapp.di.ServiceLocatorImpl
 import com.example.loginapp.ui.ClickRecyclerListener
+import com.example.loginapp.ui.deviders.CustomDevider
 import com.example.loginapp.ui.UsersAdapter
+import com.example.loginapp.ui.ViewPagerActivity
 import com.example.loginapp.ui.models.UserModel
 import com.example.loginapp.ui.paginator.PaginationListener
 import com.example.loginapp.utils.Constants
@@ -25,6 +29,8 @@ class UsersActivity : BaseActivity(), ClickRecyclerListener {
     private val usersViewModel by lazy { ViewModelFactory(serviceLocator).create(UsersViewModel::class.java) }
     private lateinit var adapter: UsersAdapter
     private val layoutManager by lazy { LinearLayoutManager(this) }
+    //TODO Different layoutManagers
+    //private val layoutManager by lazy { GridLayoutManager(this, 3) }
     private var currentPage = 1
     private var isLoading: Boolean = false
     private var usersModel: MutableList<UserModel> = mutableListOf()
@@ -60,11 +66,20 @@ class UsersActivity : BaseActivity(), ClickRecyclerListener {
                     })
                 }
                 else -> {
-                    showErrorDialog(it.firstName)
+                    //showErrorDialog(it.firstName)
+                    startActivity(ViewPagerActivity.newInstance(this))
                 }
             }
 
         }
+        val itemDecorator = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        ContextCompat.getDrawable(this,R.drawable.recycler_devider)?.let {
+            itemDecorator.setDrawable(
+                it
+            )
+        }
+       // binding.usersList.addItemDecoration(itemDecorator)
+        binding.usersList.addItemDecoration(CustomDevider(this, R.drawable.recycler_devider))
         binding.usersList.adapter = adapter
         binding.usersList.layoutManager = layoutManager
         binding.usersList.addOnScrollListener(PaginationRecyclerView(layoutManager))
