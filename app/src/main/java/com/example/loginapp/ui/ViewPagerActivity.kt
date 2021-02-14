@@ -7,6 +7,7 @@ import android.util.Log
 import com.example.loginapp.BaseActivity
 import com.example.loginapp.databinding.ActivityViewPager2Binding
 import com.example.loginapp.ui.fragments.ViewPagerAdapter
+import com.example.loginapp.ui.models.UserModel
 import com.google.android.material.tabs.TabLayoutMediator
 
 class ViewPagerActivity: BaseActivity() {
@@ -14,9 +15,9 @@ class ViewPagerActivity: BaseActivity() {
 
     companion object {
         val PUT_EXTRA_USER_DATA = "PUT_EXTRA_USER_DATA"
-        fun newInstance(context: Context): Intent {
+        fun newInstance(context: Context, model:UserModel): Intent {
             return Intent(context, ViewPagerActivity::class.java).apply {
-              //  putExtra(PUT_EXTRA_USER_DATA, users)
+                putExtra(PUT_EXTRA_USER_DATA, model)
             }
         }
     }
@@ -24,7 +25,7 @@ class ViewPagerActivity: BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-       // Log.d("TAG", "onCreate: ${binding.root} ${intent?.extras?.getParcelable<UserModel>(PUT_EXTRA_USER_DATA)}")
+        Log.d("TAG", "onCreate: ${binding.root} ${intent?.extras?.getParcelable<UserModel>(PUT_EXTRA_USER_DATA)}")
         val adapters = ViewPagerAdapter(this)
         binding.viewPager2.adapter = adapters
 

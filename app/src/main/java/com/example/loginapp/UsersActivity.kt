@@ -67,7 +67,7 @@ class UsersActivity : BaseActivity(), ClickRecyclerListener {
                 }
                 else -> {
                     //showErrorDialog(it.firstName)
-                    startActivity(ViewPagerActivity.newInstance(this))
+                    startActivity(ViewPagerActivity.newInstance(this, it))
                 }
             }
 

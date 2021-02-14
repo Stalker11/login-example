@@ -28,7 +28,7 @@ object ModelMapper {
             userAvatar = "",
             supportUrl = userNWModel?.support?.supportUrl,
             supportDescription = userNWModel?.support?.supportDescription,
-            totalPages = userNWModel?.totalPages
+            totalPages = userNWModel?.totalPages!!
         ))
         return listOfUsers
     }
